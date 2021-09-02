@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AppSettings>
+	<log4net>
+		<appender name="AforgeUSBCameraLog" type="log4net.Appender.RollingFileAppender" >
+			<file value="D:\Fiscan\Log\AfrogeUSBCamera.log" />
+			<appendToFile value="true" />
+			<PreserveLogFileNameExtension value="true" />
+			<maximumFileSize value="20KB" />
+			<maxSizeRollBackups value="2" />
+			<layout type="log4net.Layout.PatternLayout">
+				<conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
+			</layout>
+			<filter type="log4net.Filter.LevelRangeFilter">
+				<levelMin value="DEBUG" />
+				<levelMax value="WARN" />
+			</filter>
+		</appender>
+		<appender name="AforgeUSBCameraErrorLog" type="log4net.Appender.RollingFileAppender" >
+			<file value="D:\Fiscan\Log\AfrogeUSBCameraError.log" />
+			<appendToFile value="true" />
+			<PreserveLogFileNameExtension value="true" />
+			<maximumFileSize value="20KB" />
+			<maxSizeRollBackups value="2" />
+			<layout type="log4net.Layout.PatternLayout">
+				<conversionPattern value="%date [%thread] %-5level %logger - %message%newline" />
+			</layout>
+			<filter type="log4net.Filter.LevelRangeFilter">
+				<levelMin value="ERROR" />
+				<levelMax value="FATAL" />
+			</filter>
+		</appender>
+		<logger name="AforgeUSBCamera">
+			<level value="INFO" />
+			<appender-ref ref="AforgeUSBCameraLog" />
+			<appender-ref ref="AforgeUSBCameraErrorLog" />
+		</logger>
+	</log4net>
+</AppSettings>
